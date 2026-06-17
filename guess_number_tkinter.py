@@ -30,10 +30,22 @@ def check_number():
         else:
             label2.config(text=f"\n🎉 {number} is correct! You got it!", fg='green')
             label2.pack(pady=15)
+
+            #change botton1 to continue program
+            button1.config(text="Continue", command=continue_program)
     
     except ValueError:
         label2.config(text="🔢Please just enter valid number!", fg='red')
         label2.pack(pady=15)
+
+def continue_program():
+    """continue program"""
+    button1.config(text="Send", command=check_number)
+    entry.delete(0, tk.END)
+    label2.config(text='')
+
+    global target
+    target = randint(0, 100)
 
 def quit_program():
     """quit the program"""
