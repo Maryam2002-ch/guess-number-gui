@@ -33,20 +33,20 @@ def check_number():
         else:
             message.config(text=f"\n🎉 {number} is correct! You got it!", fg='green')
             message.place(x=210, y=95)
-            window.after(3000, message.place_forget)
+            window.after(5000, message.place_forget)
 
             #change botton1 to continue program
             button1.config(text="Replay", command=continue_program)
     
     except ValueError:
         message.config(text="🔢Please just enter valid number!", fg='red')
+        message.place(x=210, y=95)
         window.after(3000, message.place_forget)
 
 def continue_program():
     """continue program"""
     button1.config(text="Send", command=check_number)
     entry.delete(0, tk.END)
-    message.destroy()
 
     global target
     target = randint(0, 100)
