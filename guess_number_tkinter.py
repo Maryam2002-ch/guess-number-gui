@@ -16,33 +16,37 @@ def check_number():
         number = int(result)
 
         if (number>100) or (number<1):
-            label2.config(text="Please just enter number between 1 and 100!", fg='red')
-            label2.pack(pady=15)
+            message.config(text="Please just enter number between 1 and 100!", fg='red')
+            message.place(x=150, y=100)
+            window.after(3000, message.place_forget)
 
         elif number < target:
-            label2.config(text="⬇️ Too low. Guess again.", fg='orange')
-            label2.pack(pady=15)
+            message.config(text="⬇️ Too low. Guess again.", fg='orange')
+            message.place(x=210, y=95)
+            window.after(3000, message.place_forget)
 
         elif number > target:
-            label2.config(text="⬆️ Too high. Guess again.", fg='orange')
-            label2.pack(pady=15)
+            message.config(text="⬆️ Too high. Guess again.", fg='orange')
+            message.place(x=210, y=95)
+            window.after(3000, message.place_forget)
         
         else:
-            label2.config(text=f"\n🎉 {number} is correct! You got it!", fg='green')
-            label2.pack(pady=15)
+            message.config(text=f"\n🎉 {number} is correct! You got it!", fg='green')
+            message.place(x=210, y=95)
+            window.after(3000, message.place_forget)
 
             #change botton1 to continue program
-            button1.config(text="Continue", command=continue_program)
+            button1.config(text="Replay", command=continue_program)
     
     except ValueError:
-        label2.config(text="🔢Please just enter valid number!", fg='red')
-        label2.pack(pady=15)
+        message.config(text="🔢Please just enter valid number!", fg='red')
+        window.after(3000, message.place_forget)
 
 def continue_program():
     """continue program"""
     button1.config(text="Send", command=check_number)
     entry.delete(0, tk.END)
-    label2.config(text='')
+    message.destroy()
 
     global target
     target = randint(0, 100)
@@ -52,7 +56,9 @@ def quit_program():
     window.destroy()
 
 #create first label
-label1 = tk.Label(window, text="🤔 I'm thinking of a number between 1 and 100. Try to guess number.\n I'm thinking of: ", font=('Arial', 15))
+label1 = tk.Label(window, 
+    text="🤔 I'm thinking of a number between 1 and 100. Try to guess number.\n I'm thinking of: ", 
+    font=('Arial', 15))
 label1.pack()
 
 #create entery for getting guessing number of user
@@ -60,15 +66,14 @@ entry = tk.Entry(window, width=5, font=('Arial', 15))
 entry.pack(pady=10)
 
 #create second label for send message for user
-label2 = tk.Label(window, font=('Arial', 15))   #at first it doesn't have any text for send message
-label2.pack()
-    
+message = tk.Label(window, font=('Arial', 15))   #at first it doesn't have any text for send message
+
 #create button for send guessing number
 button1 = tk.Button(window, text='Send',font=('Arial', 15), command=check_number)
-button1.pack(pady=10)
+button1.pack(pady=60)
 
 #create button to quit of program
-button2 = tk.Button(window, text='Quit', font=('Arial', 15), fg='red', command=quit_program)
+button2 = tk.Button(window, text='Quit', font=('Arial', 15), bg='red', command=quit_program)
 button2.pack(pady=100)
 
 window.mainloop()
