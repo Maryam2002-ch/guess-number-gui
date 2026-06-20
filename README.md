@@ -8,9 +8,9 @@ A fun and interactive number guessing game with a clean graphical interface buil
 2. Type your guess in the text box
 3. Click "Send" or press Enter
 4. Get instant feedback:
-   - ⬆️ Too high
-   - ⬇️ Too low
-   - 🎉 Correct!
+- ⬆️ Too high
+- ⬇️ Too low
+- 🎉 Correct!
 5. Try to guess the number in as few attempts as possible!
 
 ## ✨ Features
