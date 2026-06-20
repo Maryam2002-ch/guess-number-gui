@@ -35,9 +35,9 @@ python guess_number_tkinter.py
 
 🤔 I'm thinking of a number between 1 and 100. Try to guess it.
 
-Enter: 50 → ⬇️ Too low. Guess again.
-Enter: 75 → ⬆️ Too high. Guess again.
-Enter: 62 → 🎉 62 is correct! You got it!
+Enter: 50 → ⬇️ Too low. Guess again. <br>
+Enter: 75 → ⬆️ Too high. Guess again. <br>
+Enter: 62 → 🎉 62 is correct! You got it! <br>
 
 New game starts when you click "Replay"!
 
